@@ -31,7 +31,7 @@ impl PersonnelOrganizer for Company {
             result.append(&mut val.clone());
         }
         result.sort();
-        Some(result.clone())
+        Some(result)
     }
 }
 

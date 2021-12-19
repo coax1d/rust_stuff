@@ -42,8 +42,6 @@ mod tests {
 
     #[test]
     fn it_works() {
-        // let result = 2 + 2;
-        // assert_eq!(result, 4);
         let mut target = Company {employee_map: HashMap::new()};
         target.add_personnel(String::from("ADD Andrew to Engineering"));
         target.add_personnel(String::from("ADD Elena to Engineering"));

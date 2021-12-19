@@ -3,7 +3,7 @@ struct Node<T> {
     next: Option<Box<Node<T>>>
 }
 pub struct LinkedList<T> {
-    head: Option<Node<T>>
+    head: Option<Node<T>> // Could instead make this Option<Box<Node<T>>> for simplicity
 }
 
 impl<T> LinkedList<T> {

@@ -5,19 +5,19 @@ pub trait Aggregate {
 }
 
 #[derive(Debug)]
-pub struct Car<T, U> {
-    gas: T,
+pub struct Car<'a, T, U> {
+    gas: &'a T,
     name: U
 }
 
-impl<T: Display, U: Display> Aggregate for Car<T, U> {
+impl<'a, T: Display, U: Display> Aggregate for Car<'a, T, U> {
     fn aggregation(&self) -> String {
         return format!("name: {} gas: {}", self.name, self.gas);
     }
 }
 
 fn main() {
-    let porsche = Car {gas: 2, name: String::from("porsche")};
+    let porsche = Car {gas: &2, name: String::from("porsche")};
     println!("{}", porsche.aggregation());
 
     let nums = vec![1,2,3,4,5];

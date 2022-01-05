@@ -22,7 +22,7 @@ impl<T> LinkedList<T> {
         self.head = Some(new_head);
     }
 
-    fn pop(&mut self) -> Option<T> {
+    fn pop(&mut self) -> Option<&T> {
         let old_head = self.head.take()?;
 
         let new_head = match old_head.next {
@@ -30,7 +30,7 @@ impl<T> LinkedList<T> {
             Some(node) => Some(*node)
         };
         self.head = new_head;
-        Some(old_head.val)
+        Some(&old_head.val)
     }
 }
 

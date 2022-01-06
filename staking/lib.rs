@@ -152,8 +152,7 @@ mod staking {
             let block_stamp = self.env().block_timestamp();
             let mut record = self.record_of_or_zero(token_addr, self.env().caller());
             if record.staked_amount > 0 {
-                // let reward = calculate_reward(token_addr, self.env().caller(), record.staked_amount);
-                let reward = 50;
+                let reward = calculate_reward(token_addr, self.env().caller(), record.staked_amount);
                 record.reward_amount += reward;
             }
             record.staked_amount += amount;
@@ -255,15 +254,7 @@ mod staking {
 
         #[ink::test]
         fn stake_works() {
-            let mut staker = Staking::new(AccountId::from([0x2; 32]));
-            let mut token = Erc20::new(100);
-            let token_address = token.token_addr();
-            // println!("{:?}", token_address);
-            assert_eq!(token.balance_of(token_address), 100);
-            assert!(token.transfer(AccountId::from([0x4; 32]), 10));
-            assert_eq!(token.balance_of(AccountId::from([0x4; 32])), 10);
-            // println!("staker address {:?}", staker.my_addr());
-            // assert!(staker.stake(token_address, 4));
+            // Need integration tests to test cross-function calls - Green (from Supercolony Openbrush)
         }
 
         #[ink::test]

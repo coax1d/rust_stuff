@@ -15,7 +15,6 @@ pub enum Instruction {
     CompareLT,
     CompareLTE,
     CompareGTE,
-    // CMP,
     Add,
     Sub,
     Mul,
